@@ -17,6 +17,7 @@ set(CMAKE_INCLUDE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/inc)
 
 set(CMAKE_OUTPUT_DIR ${CMAKE_BINARY_DIR})
 
+set(PROJECTLIB ExampleLib)
 # set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
 # set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++17")
 #set(CMAKE_CXX_STANDARD 17)
@@ -30,7 +31,7 @@ include_directories(
     )
 
 aux_source_directory(
-    ${CMAKE_CURRENT_SOURCE_DIR}/ EXAMPLEMAINFILE
+    ${CMAKE_CURRENT_SOURCE_DIR}/ PROJECTMAINFILE
 )
 
 link_directories(
@@ -41,10 +42,10 @@ link_directories(
 
 add_executable(
     ${This}
-    ${EXAMPLEMAINFILE}
+    ${PROJECTMAINFILE}
 )
 
 target_link_libraries(${This}
-    ExampleLib
+    ${PROJECTLIB}
 )
 
