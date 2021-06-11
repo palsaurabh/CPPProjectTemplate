@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19.0)
 
 set(PROJECTLIBTESTS ExampleTests)
-set(GOOGLETEST_DIR E:/Learning/googleTestInstall/)
+set(GOOGLETEST_DIR {CMAKE_CURRENT_SOURCE_DIR}/dependencies/googletest/build/)
 
 link_directories(
     ${GOOGLETEST_DIR}/lib
@@ -19,7 +19,8 @@ add_executable(${PROJECTLIBTESTS} ${PROJECTLIBTESTSRC})
 
 target_link_libraries(${PROJECTLIBTESTS} PUBLIC
     gtest_main
-    gtest
+    gtest.a
+    pthread
     ${PROJECTLIB}
     )
 
